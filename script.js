@@ -162,7 +162,7 @@ function processData(csvData,folderName) {
 while (InfoContainerToRemove.firstChild) {
     InfoContainerToRemove.removeChild(InfoContainerToRemove.firstChild);
 }
-    fetch('resources/info.csv')
+    fetch('/resources/info.csv')
     .then(response => response.text())
     .then(csvData => processData(csvData, folderName))
   }  
