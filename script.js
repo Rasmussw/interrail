@@ -3,7 +3,7 @@ function redirectToAnotherPage(targetPage) {
     window.location.href = url;
 }
 
-const imagePath = 'resources/fotos/';
+const imagePath = '/resources/fotos/';
 
         // Funktion til at hente filnavne fra mappen
         function fetchImageFileNames(name) {
