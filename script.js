@@ -3,7 +3,7 @@ function redirectToAnotherPage(targetPage) {
     window.location.href = url;
 }
 
-const imagePath = 'resources/fotos/';
+const imagePath = 'rasmussw.github.io/resources/fotos/';
 
         // Funktion til at hente filnavne fra mappen
         function fetchImageFileNames(name) {
@@ -164,7 +164,7 @@ function processData(csvData,folderName) {
 while (InfoContainerToRemove.firstChild) {
     InfoContainerToRemove.removeChild(InfoContainerToRemove.firstChild);
 }
-    fetch('resources/info.csv')
+    fetch('rasmussw.github.io/resources/info.csv')
     .then(response => response.text())
     .then(csvData => processData(csvData, folderName))
   }  
