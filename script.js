@@ -3,7 +3,7 @@ function redirectToAnotherPage(targetPage) {
     window.location.href = url;
 }
 
-const imagePath = '/resources/fotos/';
+const imagePath = 'rasmussw.github.io/resources/fotos/';
 
         // Funktion til at hente filnavne fra mappen
         async function fetchImageFileNames(name) {
@@ -15,7 +15,7 @@ const imagePath = '/resources/fotos/';
             return matches.map(match => match.replace('href="', '').replace('"', '').substring(1));
         }
       
-        fetchImageFileNames("Amsterdam");
+        //fetchImageFileNames("Amsterdam");
         // Funktion til at oprette HTML-elementer baseret på filnavne
         function createImageElements(fileNames) {
             const imageContainer = document.getElementById('imageContainer');
