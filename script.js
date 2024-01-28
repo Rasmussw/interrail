@@ -102,9 +102,13 @@ function createButtonElementsForDestination(folderNames) {
         buttonContainer.appendChild(buttonElement);
     });
 }
-fetchFolderNames()
+
+function getInfo(){
+    fetchFolderNames()
     .then(folderNames => createButtonElementsForDestination(folderNames))
     .catch(error => console.error('Fejl ved hentning af filnavne til destination site:', error));
+
+}
 
 
 
@@ -163,7 +167,7 @@ function processData(csvData,folderName) {
 while (InfoContainerToRemove.firstChild) {
     InfoContainerToRemove.removeChild(InfoContainerToRemove.firstChild);
 }
-    fetch('/resources/info.csv')
+    fetch('rasmussw.github.io/resources/info.csv')
     .then(response => response.text())
     .then(csvData => processData(csvData, folderName))
   }  
