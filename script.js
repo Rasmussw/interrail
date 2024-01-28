@@ -40,7 +40,7 @@ const imagePath = 'resources/fotos/';
 
         function fetchFolderNames() {
             return fetch(imagePath)
-                .then(response => response.text())
+                .then(response => response.text(console.log("res= " + response.text)))
                 .then(html => {
                     const matches = html.match(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/gi);
                     return matches ? matches.map(match => match.replace(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/i, '$1')) : [];
@@ -162,7 +162,7 @@ function processData(csvData,folderName) {
 while (InfoContainerToRemove.firstChild) {
     InfoContainerToRemove.removeChild(InfoContainerToRemove.firstChild);
 }
-    fetch('/resources/info.csv')
+    fetch('resources/info.csv')
     .then(response => response.text())
     .then(csvData => processData(csvData, folderName))
   }  
