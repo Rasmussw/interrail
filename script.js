@@ -40,9 +40,11 @@ const imagePath = 'resources/fotos/';
 
         function fetchFolderNames() {
             return fetch(imagePath)
-                .then(response => response.text(console.log("res= " + response.text)))
+                .then(response => response.text())
                 .then(html => {
+                    console.log("html1 = " + html)
                     const matches = html.match(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/gi);
+                    console.log("html2 = " + matches)
                     return matches ? matches.map(match => match.replace(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/i, '$1')) : [];
                 });
         }
