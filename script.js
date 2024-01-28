@@ -61,10 +61,11 @@ const imagePath = '/resources/fotos/';
                 buttonContainer.appendChild(buttonElement);
             });
         }
-        fetchFolderNames()
+        function getImages(){
+            fetchFolderNames()
             .then(folderNames => createButtonElements(folderNames))
             .catch(error => console.error('Fejl ved hentning af filnavne:', error));
-
+        }
         // Kald funktionen til at hente filnavne og derefter oprette HTML-elementer
         function test(folderName){
             const imageContainerToRemove = document.getElementById('imageContainer');
