@@ -6,15 +6,13 @@ function redirectToAnotherPage(targetPage) {
 const imagePath = '/resources/fotos/';
 
         // Funktion til at hente filnavne fra mappen
-        function fetchImageFileNames(name) {
-            return fetch(imagePath + name)
-                .then(response => response.text())
-                .then(html => {
-                    // Brug en simpel metode til at udtrække filnavne fra HTML-indholdet
-                    console.log("html-3 = " + html)
-                    const matches = html.match(/href="([^"]+\.(jpg|jpeg|png))"/gi);
-                    return matches.map(match => match.replace('href="', '').replace('"','').substring(1));
-                });
+        async function fetchImageFileNames(name) {
+            const response = await fetch(imagePath + name);
+            const html = await response.text();
+            // Brug en simpel metode til at udtrække filnavne fra HTML-indholdet
+            console.log("html-3 = " + html);
+            const matches = html.match(/href="([^"]+\.(jpg|jpeg|png))"/gi);
+            return matches.map(match => match.replace('href="', '').replace('"', '').substring(1));
         }
       
         fetchImageFileNames("Amsterdam");
@@ -40,15 +38,13 @@ const imagePath = '/resources/fotos/';
             });
         }
 
-        function fetchFolderNames() {
-            return fetch(imagePath)
-                .then(response => response.text())
-                .then(html => {
-                    console.log("html1 = " + html)
-                    const matches = html.match(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/gi);
-                    console.log("html2 = " + matches)
-                    return matches ? matches.map(match => match.replace(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/i, '$1')) : [];
-                });
+        async function fetchFolderNames() {
+            const response = await fetch(imagePath);
+            const html = await response.text();
+            console.log("html1 = " + html);
+            const matches = html.match(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/gi);
+            console.log("html2 = " + matches);
+            return matches ? matches.map(match => match.replace(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/i, '$1')) : [];
         }
 
         function createButtonElements(folderNames) {
