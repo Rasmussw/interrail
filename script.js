@@ -11,7 +11,7 @@ const imagePath = 'rasmussw.github.io/resources/fotos/';
                 .then(response => response.text())
                 .then(html => {
                     // Brug en simpel metode til at udtrække filnavne fra HTML-indholdet
-                    console.log("html-1 = " + html)
+                    console.log("html-3 = " + html)
                     const matches = html.match(/href="([^"]+\.(jpg|jpeg|png))"/gi);
                     return matches.map(match => match.replace('href="', '').replace('"','').substring(1));
                 });
