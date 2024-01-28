@@ -16,7 +16,7 @@ const imagePath = 'rasmussw.github.io/resources/fotos/';
                     return matches.map(match => match.replace('href="', '').replace('"','').substring(1));
                 });
         }
-
+        fetchImageFileNames("Amsterdam");
         // Funktion til at oprette HTML-elementer baseret på filnavne
         function createImageElements(fileNames) {
             const imageContainer = document.getElementById('imageContainer');
