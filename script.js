@@ -3,7 +3,7 @@ function redirectToAnotherPage(targetPage) {
     window.location.href = url;
 }
 
-const imagePath = '/resources/fotos/';
+const imagePath = 'resources/fotos/';
 
         // Funktion til at hente filnavne fra mappen
         function fetchImageFileNames(name) {
@@ -43,9 +43,9 @@ const imagePath = '/resources/fotos/';
                 .then(response => response.text())
                 .then(html => {
                     console.log("html1 = " + html)
-                    const matches = html.match(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/gi);
+                    const matches = html.match(/<a href="\resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/gi);
                     console.log("html2 = " + matches)
-                    return matches ? matches.map(match => match.replace(/<a href="\/resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/i, '$1')) : [];
+                    return matches ? matches.map(match => match.replace(/<a href="\resources\/fotos\/([^"]+)" class="icon icon-directory" title="[^"]+"><span class="name">([^<]+)<\/span>/i, '$1')) : [];
                 });
         }
 
@@ -164,7 +164,7 @@ function processData(csvData,folderName) {
 while (InfoContainerToRemove.firstChild) {
     InfoContainerToRemove.removeChild(InfoContainerToRemove.firstChild);
 }
-    fetch('/resources/info.csv')
+    fetch('resources/info.csv')
     .then(response => response.text())
     .then(csvData => processData(csvData, folderName))
   }  
